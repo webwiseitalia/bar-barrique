@@ -2,30 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #0a0908;
+  color: #fafaf9;
 }
 
-/* Hide scrollbar for cleaner mobile experience */
+/* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1c1917;
+  background: #0a0908;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #44403c;
-  border-radius: 4px;
+  background: #292524;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #57534e;
+  background: #44403c;
+}
+
+/* Writing mode for vertical text */
+.writing-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Selection styling */
+::selection {
+  background: #b45309;
+  color: #fafaf9;
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease;
+}
+
+/* Ensure sections are visible by default - animations are progressive enhancement */
+.about-reveal,
+.offer-card,
+.gallery-item {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* Custom cursor for interactive elements */
+@media (hover: hover) {
+  a:hover,
+  button:hover {
+    cursor: pointer;
+  }
 }
