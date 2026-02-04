@@ -99,7 +99,7 @@ function App() {
               <motion.button
                 key={item}
                 onClick={() => scrollTo(item)}
-                className="text-white hover:text-amber-400 transition-colors text-sm tracking-widest uppercase"
+                className="text-white hover:text-[#710109] transition-colors text-sm tracking-widest uppercase"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
@@ -135,7 +135,7 @@ function App() {
                 <button
                   key={item}
                   onClick={() => scrollTo(item)}
-                  className="text-4xl font-serif text-white hover:text-amber-400 uppercase tracking-wider"
+                  className="text-4xl font-serif text-white hover:text-[#710109] uppercase tracking-wider"
                 >
                   {item.replace('-', ' ')}
                 </button>
@@ -160,7 +160,7 @@ function App() {
                 transition={{ duration: 0.8 }}
               >
                 <span className="block">BAR</span>
-                <span className="block text-amber-500 -mt-4 md:-mt-8 ml-[20%]">RIQUE</span>
+                <span className="block text-[#710109] -mt-4 md:-mt-8 ml-[20%]">RIQUE</span>
               </motion.h1>
             </div>
 
@@ -177,7 +177,7 @@ function App() {
                 className="w-full h-[60vh] md:h-[70vh] object-cover"
               />
               {/* Floating badge */}
-              <div className="absolute -bottom-6 -left-6 md:-left-12 bg-amber-600 p-4 md:p-6">
+              <div className="absolute -bottom-6 -left-6 md:-left-12 bg-[#710109] p-4 md:p-6">
                 <span className="text-3xl md:text-5xl font-serif block">4.3</span>
                 <span className="text-xs uppercase tracking-wider">Google</span>
               </div>
@@ -190,7 +190,7 @@ function App() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <p className="text-amber-500 text-xs uppercase tracking-[0.3em] mb-3">Wine Bar — Aprica</p>
+              <p className="text-[#710109] text-xs uppercase tracking-[0.3em] mb-3">Wine Bar — Aprica</p>
               <p className="text-stone-400 text-lg md:text-xl leading-relaxed max-w-sm">
                 Il tuo rifugio a 1.181 metri. Vini valtellinesi, taglieri e atmosfera alpina.
               </p>
@@ -206,7 +206,7 @@ function App() {
               <div className="flex gap-4">
                 <a
                   href="tel:+393922426291"
-                  className="bg-white text-black px-6 py-4 text-sm uppercase tracking-wider hover:bg-amber-400 transition-colors"
+                  className="bg-white text-black px-6 py-4 text-sm uppercase tracking-wider hover:bg-[#8a1a22] hover:text-white transition-colors"
                 >
                   Chiama
                 </a>
@@ -214,7 +214,7 @@ function App() {
                   href="https://wa.me/393922426291"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-stone-600 px-6 py-4 text-sm uppercase tracking-wider hover:border-amber-500 hover:text-amber-400 transition-colors"
+                  className="border border-stone-600 px-6 py-4 text-sm uppercase tracking-wider hover:border-[#710109] hover:text-[#710109] transition-colors"
                 >
                   WhatsApp
                 </a>
@@ -246,7 +246,7 @@ function App() {
 
             {/* Section title - huge and overlapping */}
             <div className="col-span-12 relative z-10">
-              <span className="text-amber-500 text-xs uppercase tracking-[0.3em] block mb-4">01 — Chi siamo</span>
+              <span className="text-[#710109] text-xs uppercase tracking-[0.3em] block mb-4">01 — Chi siamo</span>
               <h2 className="font-serif text-[18vw] md:text-[14vw] leading-[0.8] tracking-tight">
                 <span className="text-stone-800" style={{WebkitTextStroke: '1px #78716c'}}>UN</span>
                 <span className="text-white ml-4">ANGOLO</span>
@@ -265,7 +265,7 @@ function App() {
             {/* Text block - offset */}
             <div className="col-span-12 md:col-span-5 md:col-start-7 mt-8 md:mt-20">
               <h3 className="font-serif text-4xl md:text-6xl mb-6">
-                di <span className="text-amber-400">Valtellina</span>
+                di <span className="text-[#710109]">Valtellina</span>
               </h3>
               <p className="text-stone-400 text-lg leading-relaxed mb-8">
                 Nel cuore di Aprica, le nostre pareti in legno e pietra creano
@@ -274,11 +274,11 @@ function App() {
               </p>
               <div className="flex gap-8">
                 <div>
-                  <span className="text-4xl font-serif text-amber-500">1181</span>
+                  <span className="text-4xl font-serif text-[#710109]">1181</span>
                   <span className="block text-xs text-stone-500 uppercase tracking-wider mt-1">Metri s.l.m.</span>
                 </div>
                 <div>
-                  <span className="text-4xl font-serif text-amber-500">2015</span>
+                  <span className="text-4xl font-serif text-[#710109]">2015</span>
                   <span className="block text-xs text-stone-500 uppercase tracking-wider mt-1">Anno apertura</span>
                 </div>
               </div>
@@ -312,8 +312,8 @@ function App() {
           <div className="mt-24 md:mt-40 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-stone-800 pt-12">
             {['Vini Valtellinesi', 'Birre Artigianali', 'Sky Sport Live', 'Wi-Fi Free'].map((item, i) => (
               <div key={i} className="group">
-                <span className="text-amber-500 text-3xl font-serif block mb-2">0{i + 1}</span>
-                <span className="text-stone-300 text-sm uppercase tracking-wider group-hover:text-amber-400 transition-colors">{item}</span>
+                <span className="text-[#710109] text-3xl font-serif block mb-2">0{i + 1}</span>
+                <span className="text-stone-300 text-sm uppercase tracking-wider group-hover:text-[#710109] transition-colors">{item}</span>
               </div>
             ))}
           </div>
@@ -326,10 +326,10 @@ function App() {
 
           {/* Section header with overlapping text */}
           <div className="relative mb-20 md:mb-32">
-            <span className="text-amber-500 text-xs uppercase tracking-[0.3em] block mb-4">02 — Offerta</span>
+            <span className="text-[#710109] text-xs uppercase tracking-[0.3em] block mb-4">02 — Offerta</span>
             <h2 className="font-serif text-[14vw] md:text-[10vw] leading-[0.85]">
               <span className="block">LA NOSTRA</span>
-              <span className="block text-amber-400 ml-[10%] md:ml-[20%]">SELEZIONE</span>
+              <span className="block text-[#710109] ml-[10%] md:ml-[20%]">SELEZIONE</span>
             </h2>
             {/* Overlapping subtitle */}
             <p className="absolute bottom-0 right-0 md:right-[10%] text-stone-500 text-sm uppercase tracking-widest">
@@ -351,7 +351,7 @@ function App() {
               </div>
               {/* Overlapping text box */}
               <div className="absolute -bottom-8 -right-4 md:right-8 bg-[#0c0a09] p-6 md:p-10 max-w-sm">
-                <span className="text-amber-500 text-xs uppercase tracking-widest">Selezione</span>
+                <span className="text-[#710109] text-xs uppercase tracking-widest">Selezione</span>
                 <h3 className="font-serif text-3xl md:text-5xl mt-2">Vini Valtellinesi</h3>
                 <p className="text-stone-400 mt-3 text-sm">Sforzato, Inferno, Sassella e le migliori etichette locali</p>
               </div>
@@ -422,7 +422,7 @@ function App() {
 
           {/* Title with overlapping */}
           <div className="relative mb-16 md:mb-24">
-            <span className="text-amber-500 text-xs uppercase tracking-[0.3em] block mb-4">03 — Galleria</span>
+            <span className="text-[#710109] text-xs uppercase tracking-[0.3em] block mb-4">03 — Galleria</span>
             <h2 className="font-serif text-[12vw] md:text-[9vw] leading-[0.85]">
               <span className="text-stone-700">MOMENTI</span>
             </h2>
@@ -476,7 +476,7 @@ function App() {
               alt=""
               className="max-w-full max-h-[90vh] object-contain"
             />
-            <button className="absolute top-6 right-6 text-white text-4xl hover:text-amber-400">×</button>
+            <button className="absolute top-6 right-6 text-white text-4xl hover:text-[#710109]">×</button>
           </motion.div>
         )}
       </AnimatePresence>
@@ -488,9 +488,9 @@ function App() {
 
             {/* Ratings - overlapping style */}
             <div className="col-span-12 md:col-span-4">
-              <span className="text-amber-500 text-xs uppercase tracking-[0.3em] block mb-8">04 — Recensioni</span>
+              <span className="text-[#710109] text-xs uppercase tracking-[0.3em] block mb-8">04 — Recensioni</span>
               <div className="relative">
-                <span className="text-[8rem] md:text-[12rem] font-serif text-amber-500 leading-none">4.3</span>
+                <span className="text-[8rem] md:text-[12rem] font-serif text-[#710109] leading-none">4.3</span>
                 <span className="absolute bottom-4 left-32 md:left-48 text-stone-500 text-sm">/5 Google</span>
               </div>
               <div className="mt-4">
@@ -523,7 +523,7 @@ function App() {
                   <button
                     key={i}
                     onClick={() => setCurrentReview(i)}
-                    className={`w-10 h-1 transition-colors ${i === currentReview ? 'bg-amber-500' : 'bg-stone-700'}`}
+                    className={`w-10 h-1 transition-colors ${i === currentReview ? 'bg-[#710109]' : 'bg-stone-700'}`}
                   />
                 ))}
               </div>
@@ -542,10 +542,10 @@ function App() {
           </div>
 
           <div className="relative z-10">
-            <span className="text-amber-500 text-xs uppercase tracking-[0.3em] block mb-4">05 — Contatti</span>
+            <span className="text-[#710109] text-xs uppercase tracking-[0.3em] block mb-4">05 — Contatti</span>
             <h2 className="font-serif text-[12vw] md:text-[8vw] leading-[0.85] mb-16 md:mb-24">
               <span className="block">VIENI A</span>
-              <span className="block text-amber-400 ml-[5%] md:ml-[15%]">TROVARCI</span>
+              <span className="block text-[#710109] ml-[5%] md:ml-[15%]">TROVARCI</span>
             </h2>
 
             <div className="grid grid-cols-12 gap-8">
@@ -553,7 +553,7 @@ function App() {
               {/* Info column */}
               <div className="col-span-12 md:col-span-5 space-y-10">
                 <div>
-                  <span className="text-amber-500 text-xs uppercase tracking-widest">Indirizzo</span>
+                  <span className="text-[#710109] text-xs uppercase tracking-widest">Indirizzo</span>
                   <p className="text-2xl md:text-3xl mt-3 font-light">
                     Corso Roma 94<br/>23031 Aprica (SO)
                   </p>
@@ -561,14 +561,14 @@ function App() {
                 </div>
 
                 <div>
-                  <span className="text-amber-500 text-xs uppercase tracking-widest">Telefono</span>
-                  <a href="tel:+393922426291" className="block text-2xl md:text-4xl mt-3 font-light hover:text-amber-400 transition-colors">
+                  <span className="text-[#710109] text-xs uppercase tracking-widest">Telefono</span>
+                  <a href="tel:+393922426291" className="block text-2xl md:text-4xl mt-3 font-light hover:text-[#710109] transition-colors">
                     392 242 6291
                   </a>
                 </div>
 
                 <div>
-                  <span className="text-amber-500 text-xs uppercase tracking-widest">Social</span>
+                  <span className="text-[#710109] text-xs uppercase tracking-widest">Social</span>
                   <div className="flex gap-6 mt-3">
                     <a href="https://www.instagram.com/barrique_aprica" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-white transition-colors text-sm uppercase tracking-wider">
                       Instagram
@@ -583,7 +583,7 @@ function App() {
               {/* Hours + CTA */}
               <div className="col-span-12 md:col-span-6 md:col-start-7">
                 <div className="bg-stone-800/40 p-8 md:p-10">
-                  <span className="text-amber-500 text-xs uppercase tracking-widest">Orari</span>
+                  <span className="text-[#710109] text-xs uppercase tracking-widest">Orari</span>
                   <div className="mt-6 space-y-4 text-sm md:text-base">
                     <div className="flex justify-between border-b border-stone-700/50 pb-3">
                       <span className="text-red-400">Lunedì</span>
@@ -645,7 +645,7 @@ function App() {
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#0c0a09] to-transparent md:hidden z-40">
         <a
           href="tel:+393922426291"
-          className="flex items-center justify-center gap-2 bg-amber-600 text-white py-4 font-medium"
+          className="flex items-center justify-center gap-2 bg-[#710109] text-white py-4 font-medium"
         >
           Chiamaci Ora
           <span>→</span>
