@@ -25,10 +25,19 @@ function App() {
   const [selectedImage, setSelectedImage] = useState(null)
   const [currentReview, setCurrentReview] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   const lenisRef = useRef(null)
   const heroRef = useRef(null)
   const marqueeRef = useRef(null)
+
+  // Loading screen timer
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 2500)
+    return () => clearTimeout(timer)
+  }, [])
 
   const reviews = [
     { text: "Il personale è sorridente e cordiale, sempre. Il posto molto carino e curato.", author: "Google Review" },
@@ -82,6 +91,74 @@ function App() {
 
   return (
     <div className="bg-[#0c0a09] text-stone-100 overflow-x-hidden">
+
+      {/* Loading Screen */}
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div
+            className="fixed inset-0 z-[100] bg-[#0c0a09] flex flex-col items-center justify-center"
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {/* Logo animation */}
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.img
+                src={logo}
+                alt="Barrique"
+                className="h-20 md:h-28 w-auto"
+              />
+            </motion.div>
+
+            {/* Animated text */}
+            <motion.div
+              className="mt-8 overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              <motion.p
+                className="text-[#710109] text-xs uppercase tracking-[0.4em]"
+                initial={{ y: 20 }}
+                animate={{ y: 0 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+              >
+                Wine Bar — Aprica
+              </motion.p>
+            </motion.div>
+
+            {/* Loading bar */}
+            <motion.div
+              className="mt-10 w-48 h-[2px] bg-stone-800 overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              <motion.div
+                className="h-full bg-[#710109]"
+                initial={{ width: 0 }}
+                animate={{ width: '100%' }}
+                transition={{ duration: 2, ease: 'easeInOut' }}
+              />
+            </motion.div>
+
+            {/* Decorative elements */}
+            <motion.div
+              className="absolute bottom-12 text-stone-700 text-xs uppercase tracking-widest"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+            >
+              1.181m • Valtellina
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
         <div className="flex justify-between items-center py-6 px-6 md:px-12">
@@ -145,68 +222,59 @@ function App() {
         </AnimatePresence>
       </nav>
 
-      {/* HERO - Overlapping & Asymmetric */}
-      <section ref={heroRef} className="relative min-h-screen pt-32 pb-20 md:pt-40 md:pb-32">
-        <div className="px-6 md:px-12">
-          {/* Main grid with overlapping elements */}
+      {/* HERO - Full Background with Overlapping Text */}
+      <section ref={heroRef} className="relative min-h-screen">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={foto5}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-[#0c0a09]/60 to-[#0c0a09]/30" />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 min-h-screen flex flex-col justify-end pb-20 md:pb-32 pt-32 px-6 md:px-12">
           <div className="grid grid-cols-12 gap-4">
 
-            {/* Big title - spans across and overlaps image */}
-            <div className="col-span-12 md:col-span-8 relative z-20">
+            {/* Big title - overlapping style */}
+            <div className="col-span-12 relative">
               <motion.h1
-                className="font-serif text-[15vw] md:text-[12vw] leading-[0.85] tracking-tight"
+                className="font-serif text-[18vw] md:text-[14vw] leading-[0.85] tracking-tight"
                 initial={{ opacity: 0, y: 60 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
                 <span className="block">BAR</span>
-                <span className="block text-[#710109] -mt-4 md:-mt-8 ml-[20%]">RIQUE</span>
+                <span className="block text-[#710109] -mt-2 md:-mt-6 ml-[15%] md:ml-[20%]">RIQUE</span>
               </motion.h1>
             </div>
 
-            {/* Hero image - overlapped by title */}
+            {/* Tagline + CTA row */}
             <motion.div
-              className="col-span-10 col-start-2 md:col-span-6 md:col-start-6 -mt-[25vw] md:-mt-[18vw] relative z-10"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <img
-                src={foto5}
-                alt="Interno Barrique"
-                className="w-full h-[60vh] md:h-[70vh] object-cover"
-              />
-              {/* Floating badge */}
-              <div className="absolute -bottom-6 -left-6 md:-left-12 bg-[#710109] p-4 md:p-6">
-                <span className="text-3xl md:text-5xl font-serif block">4.3</span>
-                <span className="text-xs uppercase tracking-wider">Google</span>
-              </div>
-            </motion.div>
-
-            {/* Tagline - positioned asymmetrically */}
-            <motion.div
-              className="col-span-12 md:col-span-4 md:col-start-1 mt-12 md:mt-0 md:-mt-32 relative z-30"
-              initial={{ opacity: 0, x: -40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              className="col-span-12 md:col-span-5 mt-8 md:mt-12"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
               <p className="text-[#710109] text-xs uppercase tracking-[0.3em] mb-3">Wine Bar — Aprica</p>
-              <p className="text-stone-400 text-lg md:text-xl leading-relaxed max-w-sm">
+              <p className="text-stone-300 text-lg md:text-xl leading-relaxed max-w-md">
                 Il tuo rifugio a 1.181 metri. Vini valtellinesi, taglieri e atmosfera alpina.
               </p>
             </motion.div>
 
-            {/* CTA + Info - bottom right */}
+            {/* CTA + Info */}
             <motion.div
-              className="col-span-12 md:col-span-5 md:col-start-8 mt-16 md:mt-8 flex flex-col md:flex-row md:items-end md:justify-between gap-8"
-              initial={{ opacity: 0, y: 40 }}
+              className="col-span-12 md:col-span-6 md:col-start-7 mt-8 md:mt-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6"
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               <div className="flex gap-4">
                 <a
                   href="tel:+393922426291"
-                  className="bg-white text-black px-6 py-4 text-sm uppercase tracking-wider hover:bg-[#8a1a22] hover:text-white transition-colors"
+                  className="bg-[#710109] text-white px-6 py-4 text-sm uppercase tracking-wider hover:bg-[#8a1a22] transition-colors"
                 >
                   Chiama
                 </a>
@@ -214,15 +282,26 @@ function App() {
                   href="https://wa.me/393922426291"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-stone-600 px-6 py-4 text-sm uppercase tracking-wider hover:border-[#710109] hover:text-[#710109] transition-colors"
+                  className="border border-white/30 px-6 py-4 text-sm uppercase tracking-wider hover:border-[#710109] hover:text-[#710109] transition-colors"
                 >
                   WhatsApp
                 </a>
               </div>
-              <div className="text-right text-stone-500 text-sm">
+              <div className="text-right text-stone-400 text-sm">
                 <p>Corso Roma 94</p>
                 <p>23031 Aprica (SO)</p>
               </div>
+            </motion.div>
+
+            {/* Floating badge */}
+            <motion.div
+              className="absolute top-32 right-6 md:top-40 md:right-12 bg-[#710109] p-4 md:p-6"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              <span className="text-3xl md:text-5xl font-serif block">4.3</span>
+              <span className="text-xs uppercase tracking-wider">Google</span>
             </motion.div>
           </div>
         </div>
