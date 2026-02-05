@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 gsap.registerPlugin(ScrollTrigger)
 
 import logo from './assets/logobarique+.webp'
+import heroDolomiti from './assets/hero-dolomiti-corvara.webp'
 import foto1 from './assets/foto/foto-1.webp'
 import foto2 from './assets/foto/foto-2.webp'
 import foto3 from './assets/foto/foto-3.webp'
@@ -227,7 +228,7 @@ function App() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={foto5}
+            src={heroDolomiti}
             alt=""
             className="w-full h-full object-cover"
           />
@@ -241,13 +242,13 @@ function App() {
             {/* Big title - overlapping style */}
             <div className="col-span-12 relative">
               <motion.h1
-                className="font-serif text-[18vw] md:text-[14vw] leading-[0.85] tracking-tight"
+                className="font-serif text-[15vw] md:text-[14vw] leading-[0.85] tracking-tight"
                 initial={{ opacity: 0, y: 60 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
                 <span className="block">BAR</span>
-                <span className="block text-[#710109] -mt-2 md:-mt-6 ml-[15%] md:ml-[20%]">RIQUE</span>
+                <span className="block text-[#710109] -mt-2 md:-mt-6 ml-[5%] md:ml-[20%]">BARRIQUE</span>
               </motion.h1>
             </div>
 
